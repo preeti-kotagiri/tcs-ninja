@@ -1,0 +1,49 @@
+
+Paper Problem:-
+
+Given a paper of size A x B. Task is to cut the paper into squares of any size. Find the minimum number of squares that can be cut from the paper.
+Input:
+The first line of input contains an integer T denoting the number of test cases. Then T test cases follow. Each test case contains two integer A and B denoting the two sizes of the paper.
+Output:
+Print the minimum number of squares that can be cut from the paper.
+Constraints:
+1<=T<=10^5
+1<=A<=10^5
+1<=B<=10^5
+Example:
+Input:
+2
+13 29
+30 35
+Output:
+9
+7
+
+Solution in c:
+
+#include<stdio.h>
+void main(){
+	
+	intt,i;
+	scanf("%d",&t);
+	int A1[t],A2[t],s,sum=0,r;
+	for(i=0;i<t;i++){
+		scanf("%d%d",&A1[i],&A2[i]);
+	}	
+	for(i=0;i<t;i++)
+	{
+		//Swap
+		do
+		{
+			// 29 / 13
+			s=A2[i]/A1[i];
+			sum=sum+s;//2
+			r=A2[i]%A1[i];//29%13 -- 3
+			A2[i]=A1[i];//3
+			A1[i]=r;
+			}while(r!=0);
+	}
+	printf("%d\n",sum);
+	sum=0;	
+	
+}
